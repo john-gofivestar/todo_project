@@ -1,0 +1,77 @@
+{
+  "type": "sqlite3",
+  "connection": {
+    "filename": "/db.sqlite3"
+  },
+  "direct": true,
+  "schema": {
+    "tables": {
+      "todo": {
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "unique": false,
+              "nullable": false
+            },
+            "db_edits": {
+              "type": "increments"
+            },
+            "status": {
+              "modified": true
+            }
+          },
+          "state": {
+            "db": {
+              "type": "boolean",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            },
+            "db_edits": {
+              "default": "0"
+            },
+            "status": {
+              "modified": true
+            }
+          },
+          "item": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "description": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "due_date": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          }
+        },
+        "db_changes": [],
+        "status": {
+          "data_modified": true,
+          "children_modified": true
+        }
+      }
+    },
+    "views": {}
+  }
+}
