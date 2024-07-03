@@ -45,7 +45,9 @@
             <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="table_query.data.query" id="tableRepeat2">
                 <tr>
                     <td>
-                        <i class="fas fa-check fa-2x"></i>
+                        <div class="form-check">
+                            <input class="form-check-input ms-3" type="checkbox" value="" id="state_checkbox" name="state_checkbox" dmx-bind:checked="state==1">
+                        </div>
                     </td>
                     <td dmx-text="item"></td>
                     <td dmx-text="description"></td>
@@ -70,7 +72,7 @@
                                                 <p><label for="description">Description:</label><input id="description" name="description" type="text" value=""></p>
 
                                                 <p><label for="due_date">Due date:</label><input id="due_date" name="due_date" type="date" value=""></p>
-                                                <p><label for="state">State:</label><input id="state" name="state" type="boolean" value=""></p>
+                                                <p><label for="checked_state">State:</label><input id="state" name="state" type="boolean" value=""></p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

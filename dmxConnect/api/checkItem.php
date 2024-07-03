@@ -7,25 +7,17 @@ $app = new \lib\App();
 $app->define(<<<'JSON'
 {
   "meta": {
-    "$_GET": [
+    "$_POST": [
       {
         "type": "text",
-        "name": "sort"
+        "name": "id"
       },
       {
         "type": "text",
-        "name": "dir"
-      }
-    ],
-    "$_POST": [
-      {
-        "type": "number",
         "options": {
-          "rules": {
-            "core:required": {}
-          }
+          "rules": {}
         },
-        "name": "id"
+        "name": "state"
       }
     ]
   },
@@ -50,7 +42,7 @@ $app->define(<<<'JSON'
                 "operator": "equal",
                 "type": "expression",
                 "name": ":P1",
-                "value": "{{$_POST.id}}",
+                "value": "{{$_POST.state}}",
                 "test": ""
               }
             ],
@@ -67,7 +59,7 @@ $app->define(<<<'JSON'
                   "field": "todo.id",
                   "type": "double",
                   "operator": "equal",
-                  "value": "{{$_POST.id}}",
+                  "value": "{{$_POST.state}}",
                   "data": {
                     "table": "todo",
                     "column": "id",
@@ -112,7 +104,7 @@ $app->define(<<<'JSON'
                 "table": "todo",
                 "column": "state",
                 "type": "boolean",
-                "value": "{{1 ^ query.state}}"
+                "value": "{{$_POST.state}}"
               }
             ],
             "table": "todo",
@@ -121,6 +113,7 @@ $app->define(<<<'JSON'
               "rules": [
                 {
                   "id": "id",
+                  "field": "id",
                   "type": "double",
                   "operator": "equal",
                   "value": "{{$_POST.id}}",
@@ -129,15 +122,17 @@ $app->define(<<<'JSON'
                   },
                   "operation": "="
                 }
-              ]
+              ],
+              "conditional": null,
+              "valid": true
             },
             "returning": "id",
-            "query": "update `todo` set `state` = ? where `id` = ?",
+            "query": "update `todo` set `state` = ? where `id` = ? returning `id`",
             "params": [
               {
                 "name": ":P1",
                 "type": "expression",
-                "value": "{{1 ^ query.state}}",
+                "value": "{{$_POST.state}}",
                 "test": ""
               },
               {

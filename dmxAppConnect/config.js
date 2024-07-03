@@ -15,6 +15,14 @@ dmx.config({
     "id_var": {
       "meta": null,
       "outputType": "number"
+    },
+    "check_state": {
+      "meta": null,
+      "outputType": "boolean"
+    },
+    "checked_state": {
+      "meta": null,
+      "outputType": "text"
     }
   }
 });
