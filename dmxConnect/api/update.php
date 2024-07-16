@@ -65,7 +65,7 @@ $app->define(<<<'JSON'
               "table": "todo",
               "column": "state",
               "type": "boolean",
-              "value": "{{$_POST.state}}"
+              "value": "{{$_POST.state.default(0)}}"
             },
             {
               "table": "todo",
@@ -103,12 +103,12 @@ $app->define(<<<'JSON'
             ]
           },
           "returning": "id",
-          "query": "update `todo` set `state` = ?, `item` = ?, `description` = ?, `due_date` = ? where `id` = ?",
+          "query": "update `todo` set `state` = ?, `item` = ?, `description` = ?, `due_date` = ? where `id` = ? returning `id`",
           "params": [
             {
               "name": ":P1",
               "type": "expression",
-              "value": "{{$_POST.state}}",
+              "value": "{{$_POST.state.default(0)}}",
               "test": ""
             },
             {

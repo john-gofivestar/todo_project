@@ -44,6 +44,10 @@ $app->define(<<<'JSON'
             {
               "table": "todo",
               "column": "due_date"
+            },
+            {
+              "table": "todo",
+              "column": "id"
             }
           ],
           "params": [
@@ -81,13 +85,14 @@ $app->define(<<<'JSON'
                     "name": "id"
                   }
                 },
-                "operation": "="
+                "operation": "=",
+                "table": "todo"
               }
             ],
             "conditional": null,
             "valid": true
           },
-          "query": "select `state`, `item`, `description`, `due_date` from `todo` where `todo`.`id` = ?",
+          "query": "select `state`, `item`, `description`, `due_date`, `id` from `todo` where `todo`.`id` = ?",
           "orders": []
         }
       },
@@ -108,6 +113,10 @@ $app->define(<<<'JSON'
         {
           "type": "text",
           "name": "due_date"
+        },
+        {
+          "type": "number",
+          "name": "id"
         }
       ],
       "outputType": "object"

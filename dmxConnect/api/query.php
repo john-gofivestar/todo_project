@@ -62,12 +62,14 @@ $app->define(<<<'JSON'
             {
               "table": "todo",
               "column": "state",
-              "direction": "DESC"
+              "direction": "DESC",
+              "recid": 1
             },
             {
               "table": "todo",
               "column": "due_date",
-              "direction": "ASC"
+              "direction": "ASC",
+              "recid": 2
             }
           ]
         }
