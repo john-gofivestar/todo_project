@@ -11,9 +11,7 @@ $app->define(<<<'JSON'
       {
         "type": "text",
         "options": {
-          "rules": {
-            "core:required": {}
-          }
+          "rules": {}
         },
         "name": "id"
       }
