@@ -23,6 +23,10 @@ dmx.config({
     "checked_state": {
       "meta": null,
       "outputType": "text"
+    },
+    "id_ref": {
+      "meta": null,
+      "outputType": "number"
     }
   }
 });

@@ -12,7 +12,9 @@ $app->define(<<<'JSON'
         "type": "text",
         "options": {
           "rules": {
-            "core:required": {}
+            "core:required": {
+              "message": "id field is required"
+            }
           }
         },
         "name": "id"
