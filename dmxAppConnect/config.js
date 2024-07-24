@@ -28,5 +28,19 @@ dmx.config({
       "meta": null,
       "outputType": "number"
     }
+  },
+  "bulk_actions": {
+    "arr1": {
+      "meta": null,
+      "outputType": "number"
+    },
+    "arr2": {
+      "meta": null,
+      "outputType": "boolean"
+    },
+    "ids": {
+      "meta": null,
+      "outputType": "number"
+    }
   }
 });

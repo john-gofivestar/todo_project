@@ -20,9 +20,19 @@
 
 
 
-  <header>
-    <div class="d-flex"><a><img alt="logo" width="80" height="80" class="mt-3 ms-3" src="assets/images/checkbox.png"></a>
+  <header class="bg-light text-dark">
+    <div class="d-flex">
+
+
+      <a><img alt="logo" width="80" height="80" class="mt-3 ms-3" src="assets/images/checkbox.png"></a>
       <h1 class="mt-3 ms-3">Task Manager</h1>
+      <a href="bulk_actions.php">
+        <button id="btn1" class="btn btn-primary gx-2 mt-4 mb-2 ms-2 me-2">Bulk Actions</button>
+      </a>
+
+
+
+
     </div>
 
 
@@ -129,7 +139,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form is="dmx-serverconnect-form" id="apiform_delete" method="post" action="dmxConnect/api/delete.php" dmx-on:success="table_query.load({})">
-                      <p><label for="id">Id:</label><input id="id" name="id" type="text" value="" dmx-bind:value="id_ref.value"></p>
+                      <p><input id="id" name="id" type="hidden" value="" dmx-bind:value="id_ref.value"></p>
                     </form>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

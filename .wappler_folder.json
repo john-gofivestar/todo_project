@@ -6,5 +6,9 @@
   "task-manager.php": {
     "layoutPage": "",
     "description": "this is the REV2 page for the to-do project"
+  },
+  "bulk_actions.php": {
+    "layoutPage": "",
+    "description": ""
   }
 }
