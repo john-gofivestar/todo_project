@@ -51,7 +51,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" dmx-on:click="serverconnect1.load({ids: tableRepeat1.id})">Delete</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" dmx-on:click="apiform1.submit()">Delete</button>
                     </div>
                 </div>
             </div>
@@ -114,39 +114,45 @@
     </div>
     <div class="container">
         <div class="d-flex">
-            <dmx-serverconnect id="serverconnect1" url="dmxConnect/api/bulk_delete.php" dmx-param:ids="tableRepeat1.checkbox.value"></dmx-serverconnect>
+            <form is="dmx-serverconnect-form" id="apiform1" action="dmxConnect/api/bulk_delete.php" dmx-on:success="">
 
 
 
 
 
-            <table class="table table-striped w-75 table-bordered">
-                <thead>
-                    <tr>
-                        <th>Select</th>
-                        <th>Id</th>
-                        <th>State</th>
-                        <th>Item</th>
-                        <th>Description</th>
-                        <th>Due date</th>
-                    </tr>
-                </thead>
-                <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="table_query.data.query" id="tableRepeat1">
-                    <tr>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="checkbox" name="multi-select" dmx-bind:value="id">
-                                <label class="form-check-label" for="checkbox"></label>
-                            </div>
-                        </td>
-                        <td dmx-text="id"></td>
-                        <td dmx-text="state"></td>
-                        <td dmx-text="item"></td>
-                        <td dmx-text="description"></td>
-                        <td dmx-text="due_date"></td>
-                    </tr>
-                </tbody>
-            </table>
+                <table class="table table-striped w-75 table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Id</th>
+                            <th>State</th>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th>Due date</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="table_query.data.query" id="tableRepeat1">
+                        <tr>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkbox" name="ids[]" dmx-bind:value="id">
+                                    <label class="form-check-label" for="checkbox"></label>
+                                </div>
+                            </td>
+                            <td dmx-text="id"></td>
+                            <td dmx-text="state"></td>
+                            <td dmx-text="item"></td>
+                            <td dmx-text="description"></td>
+                            <td dmx-text="due_date"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
+
+
+
+
             <div class="d-block w-25 bg-light ms-2 ps-2 pe-2">
 
                 <p class="w-auto">

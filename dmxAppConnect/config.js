@@ -32,7 +32,7 @@ dmx.config({
   "bulk_actions": {
     "arr1": {
       "meta": null,
-      "outputType": "number"
+      "outputType": "text"
     },
     "arr2": {
       "meta": null,
